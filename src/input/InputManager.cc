@@ -1,4 +1,4 @@
-// Copyright (c) 2019 Marco Wang <m.aesophor@gmail.com>. All rights reserved.
+// Copyright (c) 2018-2020 Marco Wang <m.aesophor@gmail.com>. All rights reserved.
 #include "input/InputManager.h"
 
 #include "util/Logger.h"
@@ -11,17 +11,12 @@ using cocos2d::EventListenerKeyboard;
 
 namespace vigilante {
 
-InputManager* InputManager::_instance = nullptr;
-
 InputManager* InputManager::getInstance() {
-  if (!_instance) {
-    _instance = new InputManager();
-  }
-  return _instance;
+  static InputManager instance;
+  return &instance;
 }
 
-InputManager::InputManager()
-    : _scene(), _keyboardEvLstnr(), _pressedKeys(), _isCapsLocked() {}
+InputManager::InputManager() : _scene(), _keyboardEvLstnr(), _pressedKeys(), _isCapsLocked() {}
 
 
 void InputManager::activate(Scene* scene) {
@@ -85,4 +80,4 @@ bool InputManager::isShiftPressed() const {
   return isKeyPressed(EventKeyboard::KeyCode::KEY_SHIFT);
 }
 
-} // namespace vigilante
+}  // namespace vigilante
