@@ -20,13 +20,9 @@ using cocos2d::TMXObjectGroup;
 
 namespace vigilante {
 
-GameMapManager* GameMapManager::_instance = nullptr;
-
 GameMapManager* GameMapManager::getInstance() {
-  if (!_instance) {
-    _instance = new GameMapManager({0, kGravity});
-  }
-  return _instance;
+  static GameMapManager instance({0, kGravity});
+  return &instance;
 }
 
 GameMapManager::GameMapManager(const b2Vec2& gravity)
