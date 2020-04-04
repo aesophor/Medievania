@@ -26,7 +26,7 @@ CPP_BASE_FLAGS = [
     '-Wno-variadic-macros',
     '-Wno-ignored-qualifiers',
     '-DUSE_CLANG_COMPLETER',
-    '-std=c++14',
+    '-std=c++11',
     '-xc++',
     '-I' + proj_root + 'cocos2d/cocos',
     '-I' + proj_root + 'cocos2d/cocos/audio/include',
